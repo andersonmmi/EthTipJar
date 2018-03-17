@@ -97,5 +97,20 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "description": "EthTipJar.deployed().then(function(res){ETJ = EthTipJar.at(res.address)})",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonmmi/EthTipJar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andersonmmi/EthTipJar/issues"
+  },
+  "homepage": "https://github.com/andersonmmi/EthTipJar#readme"
 }
