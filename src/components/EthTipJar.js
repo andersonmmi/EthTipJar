@@ -17,7 +17,7 @@ if (typeof web3 !== 'undefined') {
 }
 
 let ETJAbi = require('../../abis/EthTipJarAbi.js');
-let ETJAddress = require('../../Contract-Addresses/Rinkeby-Address.js');
+let ETJAddress = '0x39A87b735B1E78992Fd91Cf1cf8aFd7785E76897';
 let ETJ = web3.eth.contract(ETJAbi).at(ETJAddress);
 
 class EthTipJar extends Component{
@@ -45,15 +45,20 @@ class EthTipJar extends Component{
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("tip fired!");
-    ETJ.tip({from: web3.eth.accounts[0], gas: 300000, value: this.state.value*10**18}, (err,res)=>{
-      if(err){
-        console.log("there is an error with the callback");
-        console.log(err);
-      } else {
-        console.log("success!");
-        console.log(res);
+    ETJ.tip({
+      from: web3.eth.accounts[0],
+      gas: 300000,
+      value: this.state.value*10**18},
+      (err,res)=>{
+        if(err){
+          console.log("there is an error with the callback");
+          console.log(err);
+        } else {
+          console.log("success!");
+          console.log(res);
+        }
       }
-    });
+    );
     console.log("ETJ.tip fired!");
   }
 
