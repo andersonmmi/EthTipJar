@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
 
+let deployContract = require('./DeployContract');
+
 let web3 = window.web3
 // stolen code zone vvv
 
@@ -26,12 +28,18 @@ class EthTipJar extends Component{
     }
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handleTextChange=this.handleTextChange.bind(this);
+    this.initializeContract=this.initializeContract.bind(this);
   }
 
   handleTextChange = (event) => {
     if(this.state[event.target.id] !== undefined){
       this.setState({[event.target.id]: event.target.value});
     }
+  }
+
+  initializeContract = (event) => {
+    console.log("initializeContract fired");
+    deployContract();
   }
 
   handleSubmit = (event) => {
@@ -66,6 +74,12 @@ class EthTipJar extends Component{
             <input id="submit" type="submit" value="Send Tip" onClick={this.handleSubmit}/>
           </form>
         </fieldset>
+        <fieldset>
+          <form>
+            <input id="submit" type="submit" value="Initialize EthTipJar" onClick={this.initializeContract}/>
+          </form>
+        </fieldset>
+
       </div>
     );
   }
