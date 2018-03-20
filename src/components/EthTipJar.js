@@ -38,6 +38,7 @@ class EthTipJar extends Component{
   }
 
   initializeContract = (event) => {
+    event.preventDefault();
     console.log("initializeContract fired");
     deployContract();
   }
